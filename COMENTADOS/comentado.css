@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+    }
+    
+    /* */
+    
+    .game-board {
+        width: 100%;
+        height: 500px;
+        border-bottom: 20px solid rgb(12, 151, 35); /* borda no "chão" pra parecer uma grama */
+        margin: 0 auto; /* pra dar uma centralizada no quadro */ 
+        position: relative; /* pras que as imagens respeitem a delimitação do quadro */ 
+        overflow: hidden; /*vai usar pra esconder as imagens que saírem da delimitação do quadrado. */ 
+        background: linear-gradient(#87CEEB, #E0F6FF); /* uma cor de azul específica que lembra um céu azul bonito. */
+    }
+    
+    .pipe {
+    position: absolute; /* pras imagens não atrapalhem o comportamento umas das outras */ 
+    bottom: 0; /* deixa a imagem fixa no "chão" */ 
+    width: 80px;
+    animation: pipe-animation 1.5s infinite linear; /* pipe-animation é nome usado no keyframes. Linear é pra que o movimento seja linear e constante. Sem usar o linear, o movimento começa muito rápido e termina mais devagar. */ 
+    }
+    
+    .mario {
+    width: 150px;
+    position: absolute;
+    bottom: 0; /*pro mario ficar embaixo. */
+    
+    }
+    
+    .clouds {
+    width: 500px;
+    position: absolute; /* PRECISA ter isso.  Sem isso aqui, as nuvens mudam toda a dinâmica do jogo que tinha sido feita antes com o gif do Mario. */
+    animation: clouds-animation 15s infinite linear /* nuvem se mexe mais lento, então é bom dar mais segundos na animação*/
+    }
+    
+    .jump {
+        animation: jump 500ms ease-out /* ease-out é pra pular instantaneamente e descer de forma mais suave. */
+    }
+    
+    @keyframes pipe-animation { /* animação pro cano(pipe) vir da direita pra esquerda */
+        from {
+           right: -80px /* fica negativo pra a animação começar com o desenho fora da tela do lado direito. */
+        }
+        
+        to {
+            right: 100%;
+        }
+    }
+    
+    @keyframes jump { /* animação pro Mario pular. A animação tem etapas pra subida e descida do pulo do Mario. */
+        0% {
+            bottom: 0;
+        }
+    
+        40% {
+            bottom: 180px;
+        }
+    
+        50% {
+            bottom: 180px;
+        }
+        60% {
+            bottom:180px;
+        }
+    
+        100% {
+            bottom: 0;
+        }
+    }
+    
+    @keyframes clouds-animation { /* pra mexer as nuvens */
+        from {
+            right: -500px; /* se começasse em 0, no 1° movimento das nuvens, quando elas sumissem, as nuves já iriam reaparecer todas de uma vez perto do meio do gráfico todo. Colocando -550px da direita, fica bem melhor a ideia da nuvem recomeçando aos poucos pelo canto direito no gráfico. */
+        }
+    
+        to {
+            right: 100%;
+        }
+    }

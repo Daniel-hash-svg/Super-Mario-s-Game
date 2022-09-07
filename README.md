@@ -2,6 +2,8 @@
 
 Link do jogo pelo Vercel: https://super-mario-alpha.vercel.app/
 
+Observação: ainda falta tornar este projeto responsivo e adaptado para celulares.
+
 Foi um projeto divertido de fazer, Mario sempre é muito divertido. Nesse projeto eu pude melhorar os conhecimentos em Javascript puro, HTML e CSS.
 Pude fazer uso dos keyframes e animações no CSS.
  
